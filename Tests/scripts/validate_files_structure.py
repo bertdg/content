@@ -455,6 +455,8 @@ def validate_version(file_path):
                 json_dict = json.load(json_file)
                 if file_name == "reputations.json":
                     reputations_valid = validate_reputations(json_dict)
+                elif file_name.startswith('layout'):
+                    version_number = json_dict.get('layout', {}).get('version')
                 else:
                     version_number = json_dict.get('version')
 
